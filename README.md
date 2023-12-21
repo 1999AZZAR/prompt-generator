@@ -88,10 +88,6 @@ graph TD
     C -->|3. Processes input| D[generative_model.py]
     D -->|4. Generates response| E[Web Interface]
     E -->|5. Displays response| B
-    B -->|6. Chooses random prompt| C
-    C -->|7. Processes request| D
-    D -->|8. Generates random prompt| E
-    E -->|9. Displays random prompt| B
 
     style A fill:#3D065A,stroke:#3D065A,stroke-width:2px;
     style B fill:#B51A62,stroke:#B51A62,stroke-width:2px;
