@@ -2,7 +2,7 @@
 <html lang="en">
 
 <head>
-    <title>My Library</title>
+    <title>saved prompt</title>
     <link rel="icon" type="image/x-icon" href="{{ url_for('static', filename='icon/favicon.ico') }}">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -48,7 +48,7 @@
         <div class="side-list" id="side-list">
             <ul id="side-top">
                 <li onclick="window.location.href='{{ url_for('home') }}';"><strong>home</strong></li>
-                <li onclick="window.location.href='{{ url_for('mylib') }}';"><strong>My Library</strong></li>
+                <li onclick="window.location.href='{{ url_for('mylib') }}';"><strong>saved prompts</strong></li>
             </ul>
         </div>
         <!-- primary end -->
@@ -63,7 +63,7 @@
     </div>
     <!-- side panel ended -->
 
-    <h1 id="toggleButton" onclick="toggleSidePanel()"><strong>Personal Prompts Library</strong></h1>
+    <h1 id="toggleButton" onclick="toggleSidePanel()"><strong>Saved Prompts</strong></h1>
 
     <!-- edit popup -->
     <div id="editPopup">
