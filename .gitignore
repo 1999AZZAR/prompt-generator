@@ -1,4 +1,4 @@
 app/__pycache__/
-app/.env
+app/.env/
 generator/
 app/database/*.*
