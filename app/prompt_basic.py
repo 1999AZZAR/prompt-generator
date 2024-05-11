@@ -73,19 +73,11 @@ def generate_random():
 
 # generate image description
 def generate_imgdescription(user_input_image):
-    # style list
-    image_styles = [
-        "3d-model", "abstract", "analog-film", "anime", "chalk-art",
-        "cartoon", "cinematic", "comic-book", "cyberpunk", "cubism", "decoupage",
-        "digital-art", "disney", "enhance", "expressionistic", "fantasy-art", 
-        "glitch-art", "graffiti", "hyperrealistic", "impressionistic",
-        "isometric", "line-art", "low-poly", "minimalist", "modeling-compound",
-        "neon-punk", "origami", "paper-cut", "photographic", "pixel-art", 
-        "pop-art", "steampunk", "surreal", "tile-texture", "vaporwave",
-        "watercolor",
-    ]
-    
-    # choose 3 random styles from list
+    # Read image styles from file
+    with open('./instruction/image_styles.txt', 'r') as file:
+        image_styles = [line.strip() for line in file.readlines()]
+
+    # Choose random styles from the list
     chosen_styles = random.sample(image_styles, k=3)
     prompt_parts = [
         " ",
@@ -98,23 +90,15 @@ def generate_imgdescription(user_input_image):
 
 # generate random image description
 def generate_vrandom():
-    # style list
-    image_styles = [
-        "3d-model", "abstract", "analog-film", "anime", "chalk-art",
-        "cartoon", "cinematic", "comic-book", "cyberpunk", "cubism", "decoupage",
-        "digital-art", "disney", "enhance", "expressionistic", "fantasy-art", 
-        "glitch-art", "graffiti", "hyperrealistic", "impressionistic",
-        "isometric", "line-art", "low-poly", "minimalist", "modeling-compound",
-        "neon-punk", "origami", "paper-cut", "photographic", "pixel-art", 
-        "pop-art", "steampunk", "surreal", "tile-texture", "vaporwave",
-        "watercolor",
-    ]
+    # Read image styles from file
+    with open('./instruction/image_styles.txt', 'r') as file:
+        image_styles = [line.strip() for line in file.readlines()]
 
-    # chose random style from list
+    # Choose random styles from the list
     chosen_styles = random.sample(image_styles, k=3)
     prompt_parts = [
         " ",
-        f"Input: Use the following styles ({', '.join(chosen_styles)}) to create a compelling image description. if possible Incorporate elements all of those styles into your description. Your narrative should be between 200 to 400 characters, evoking a vivid and imaginative scene. Start your description with the word 'imagine,' e.g., 'imagine a hyperrealistic portrait in a dreamlike landscape...'",
+        f"Input: Use the following styles ({', '.join(chosen_styles)}) to create a compelling image description. if possible Incorporate elements all of those styles into your description. Your narrative should be between 200 to 1000 characters, evoking a vivid and imaginative scene. Start your description with the word 'imagine,' e.g., 'imagine a hyperrealistic portrait in a dreamlike landscape...'",
         "Output: ",
     ]
     response = model.generate_content(prompt_parts)
