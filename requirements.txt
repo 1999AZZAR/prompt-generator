@@ -1,0 +1,8 @@
+google-generativeai
+flask
+python-dotenv
+retrying
+google-api-python-client
+google-auth
+google-auth-oauthlib
+pillow

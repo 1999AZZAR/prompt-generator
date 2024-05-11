@@ -1,0 +1,290 @@
+/* Fonts */
+@font-face {
+  font-family: "Rubik";
+  src: url("../font/Rubik.ttf") format("TrueType");
+}
+
+@font-face {
+  font-family: "Caveat";
+  src: url("../font/Caveat.ttf") format("TrueType");
+}
+
+@font-face {
+  font-family: "Montserrat";
+  src: url("../font/Montserrat.ttf") format("TrueType");
+}
+
+body {
+  font-family: 'Caveat', cursive;
+  font-family: 'Montserrat', cursive;
+  color: rgb(255, 255, 255);
+  background: linear-gradient(rgba(0, 0, 0, 0.65), rgba(0, 0, 0, 0.65)), url('../icon/bg.jpg') center/cover no-repeat fixed;
+  margin-left: 10%;
+  margin-right: 10%;
+  margin-top: 8%;
+  margin-bottom: 8%;
+  line-height: 1.5;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Montserrat', sans-serif;
+}
+
+h1, h2 {
+  margin-top: 15px;
+  font-family: 'Montserrat';
+  margin-bottom: 15px;
+}
+
+h1 {
+  font-size: 2.375rem;
+  color: purple !important;
+}
+
+h1 a {
+  color: purple !important;
+}
+
+h1 a:hover {
+  color: rgb(204, 0, 255) !important;
+}
+
+h2 {
+  font-size: 2.125rem;
+  color: yellow;
+}
+
+h3 {
+  font-size: 1.75rem;
+  color: white;
+}
+
+h4 {
+  font-size: 1.625rem;
+}
+
+a {
+  color: rgba(255, 255, 0, 0.863);
+  text-decoration: none;
+}
+
+a:hover {
+  color: rgb(255, 132, 0);
+  text-decoration: none;
+}
+
+p {
+  background-color: #000000a1;
+  font-family: 'Rubik';
+  text-align: justify;
+  font-size: 0.95rem;
+  border: 2px solid #565656;
+  border-radius: 10px; 
+  padding: 10px;
+  margin: 0px 0px 10px; 
+}
+
+p:hover {
+  color:rgb(254, 230, 203)
+}
+
+strong:hover{
+  color:#ffd477;
+}
+
+code {
+  font-family: 'Rubik';
+  font-size: 1.25rem;
+}
+
+.code-container {
+  position: relative;
+  margin: 20px;
+  max-height: fit-content;
+  overflow-y: hidden;
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.copy-button {
+  position: relative;
+  top: 5px;
+  right: 5px;
+  padding: 5px 10px;
+  margin: 5px 0px 5px 17px;
+  background-color: #1d1d1de0;
+  color: #fff;
+  cursor: pointer;
+  border: none;
+  border-radius: 25px;
+  transform: rotate(180deg);
+  -webkit-transform: rotate(180deg);
+  -moz-transform: rotate(180deg);
+  -ms-transform: rotate(180deg);
+  -o-transform: rotate(180deg);
+}
+
+article {
+  background-color: rgb(0 0 0 / 59%);
+  color: white;
+  font-size: 0.9rem;
+  border: 2px solid #565656;
+  border-radius: 10px;
+  padding: 10px;
+  margin: 10px;
+  text-align: justify;
+  width: 87%;
+  font-family: 'Rubik';
+}
+
+summary {
+  color: white;
+  font-weight: bold;
+  font-size: 1.5em;
+  border-radius: 50%;
+}
+
+details {
+  display: block;
+  margin-bottom: 15px;
+  padding: 8px;
+}
+
+ul {
+  background-color: #000000a8;
+  border-radius: 15px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  padding-right: 10px;
+}
+
+ol, ul {
+  font-family: 'Cavear' !important;
+  font-size: 1.125rem;
+}
+
+ul li {
+  list-style: none;
+  margin-left: 20px; 
+  position: relative;
+  font-size: 1rem;
+  display: block;
+  font-family: 'Rubik';
+}
+
+ul li:before {
+  content: "> "; 
+  position: absolute;
+  left: -1.327rem; 
+}
+
+li {
+  font-family: 'Rubik';
+  text-align: justify;
+}
+
+li a {
+  color: white;
+  font-family: 'Rubik';
+}
+
+li code {
+  font-size: 1rem;
+}
+
+summary h3,
+summary h2 {
+  display: inline;
+}
+
+.center { 
+  text-align: center; 
+}
+
+div {
+  margin-left: 4%;
+}
+
+html::-webkit-scrollbar {
+  display: none;
+}
+
+/* Mobile Styles */
+@media only screen and (max-width: 480px) {
+  body {
+    margin-left: 5%;
+    margin-right: 5%;
+    margin-top: 5%;
+    margin-bottom: 5%;
+  }
+
+  h1 {
+    font-size: 1.8rem;
+    margin-top: 10px;
+    margin-bottom: 10px;
+  }
+
+  h2 {
+    font-size: 1.5rem;
+  }
+
+  p {
+    font-size: 0.85rem;
+  }
+
+  ul, ol {
+    font-size: 1rem;
+  }
+
+  li {
+    font-size: 0.9rem;
+  }
+
+  .code-container {
+    margin: 10px;
+  }
+
+  article {
+    font-size: 0.8rem;
+  }
+}
+
+/* Tablet Styles */
+@media only screen and (min-width: 481px) and (max-width: 768px) {
+  body {
+    margin-left: 8%;
+    margin-right: 8%;
+    margin-top: 6%;
+    margin-bottom: 6%;
+  }
+
+  h1 {
+    font-size: 2.2rem;
+    margin-top: 12px;
+    margin-bottom: 12px;
+  }
+
+  h2 {
+    font-size: 1.8rem;
+  }
+
+  p {
+    font-size: 0.9rem;
+  }
+
+  ul, ol {
+    font-size: 1.1rem;
+  }
+
+  li {
+    font-size: 1rem;
+  }
+
+  .code-container {
+    margin: 15px;
+  }
+
+  article {
+    font-size: 1rem;
+  }
+}

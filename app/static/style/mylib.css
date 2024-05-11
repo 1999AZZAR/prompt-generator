@@ -1,0 +1,201 @@
+body {
+    font-family: 'Montserrat', sans-serif;
+    color: rgb(255, 255, 255);
+    line-height: 1.5;
+    background: linear-gradient(rgba(0, 0, 0, 0.65), rgba(0, 0, 0, 0.65)), url('../icon/bg.jpg') center/cover no-repeat fixed;
+}
+
+p {
+    background-color: #00000065;
+    font-family: 'Rubik';
+    text-align: center;
+    font-size: 0.95rem;
+    border-radius: 10px;
+    padding: 10px;
+    margin: 10px 0px;
+}
+
+p:hover {
+    color: rgb(254, 230, 203);
+}
+
+strong:hover {
+    color: #ffd477;
+}
+
+h1 {
+    font-family: 'Caveat', cursive;
+    font-size: 2.375rem;
+    text-align: center;
+    color: purple !important;
+}
+
+h1 a {
+    color: purple !important;
+}
+
+h1 a:hover,
+h1 strong:hover {
+    color: rgb(204, 0, 255) !important;
+}
+
+h2 {
+    font-family: 'Montserrat';
+    font-size: 2.125rem;
+    color: yellow;
+}
+
+h3 {
+    font-size: 1.75rem;
+    margin: 0%;
+    color: yellow;
+    text-align: center;
+}
+
+h4 {
+    font-size: 1.625rem;
+    margin: 2% 0%;
+}
+
+a {
+    color: rgba(255, 255, 0, 0.863);
+    text-decoration: none;
+}
+
+a:hover {
+    color: rgb(255, 132, 0);
+    text-decoration: none;
+}
+
+.main {
+    display: block;
+    align-items: center;
+    flex-wrap: wrap;
+    flex-direction: column;
+}
+
+.prompt-box {
+    display: block;
+    margin: 1% 1%;
+    padding: 2% 3%;
+    border-radius: 15px;
+    height: fit-content;
+    min-width: 450px;
+    max-width: 450px;
+    background-color: #2d2d2dc2;
+    align-content: normal;
+    line-height: 1.2;
+}
+
+.prompt-box p {
+    padding: 2.5%;
+    margin: 2%  1%;
+    text-align: justify;
+    line-height: 1.1;
+    font-family: 'Rubik';
+    height: 230px;
+    overflow-y: auto; /* Add overflow-y property */
+}
+
+button {
+    color: rgb(255 255 255);
+    font-family: 'Rubik';
+    font-size: 0.9em;
+    background-color: #4b006e78;
+    border: 2px solid #56565657;
+    cursor: pointer;
+    margin: 1%;
+    padding: 1px;
+    transition: transform 0.3s linear;
+    border-radius: 10px;
+    min-width: 80px;
+}
+
+button:hover {
+    background-color: #5c0187e2;
+    transform: scale(1.1);
+}
+
+ol li {
+    font-family: 'Caveat', cursive;
+}
+
+ol {
+    display: flex;
+    flex-direction: row;
+    align-content: normal;
+    flex-wrap: wrap;
+}
+
+div#imageBoxContainer {
+    display: inline-flex;
+    width: -webkit-fill-available;
+    justify-content: space-evenly;
+    height: fit-content;
+}
+
+div.prompt-container {
+    list-style: none;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin: auto 3%;
+    max-width: 100%;
+}
+
+div.prompt-box {
+    width: calc(50% - 20px); /* Adjust width for two items in one row */
+}
+
+/* edit popup */
+#editPopup {
+    display: none;
+    position: fixed;
+    min-width: 350px;
+    max-width: 90%;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #232323;
+    padding: 1% 2%;
+    border-radius: 10px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
+    z-index: 9999;
+}
+
+#editPopup input{
+    width: 90%;
+    padding: 3%;
+    border-radius: 8px;
+    color: #ffffff;
+    background-color: #151515;
+}
+
+#editPopup textarea {
+    margin-bottom: 10px;
+    width: 90%;
+    padding: 3%;
+    height: 200px;
+    border-radius: 8px;
+    text-align: justify;
+    color: #ffffff;
+    background-color: #151515;
+}
+
+
+@media only screen and (min-width: 250px) and (max-width: 768px) {
+    div.prompt-box {
+        width: 90%; /* Fill 90% of the width of the display */
+        max-width: none; /* Remove max-width */
+    }
+
+    div.prompt-container {
+        display: block; /* Change to block display */
+    }
+
+    @media (max-width: 450px) {
+        div.prompt-box {
+            width: calc(100% - 20px); /* Adjust width to fill screen */
+        }
+    }
+}

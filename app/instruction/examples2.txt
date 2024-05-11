@@ -1,0 +1,2 @@
+input: generate one random role, provide that role into a structural prompt (using 200-2000 character and make it as random as possible) without any explanation.
+output:
