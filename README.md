@@ -2,27 +2,27 @@
 
 ### Overview
 
-This project, named the GPT Advance Prompt Generator, is a Flask web application designed to leverage the Generative AI API. It allows users to interact with a generative model to create structured prompts or explore random prompts. The web interface provides a seamless experience for users to generate creative prompts based on their input or discover unique prompts at random.
+This project, named the Prompt Generator, is a Flask web application designed to leverage the Generative AI API. It allows users to interact with a generative model to create structured prompts or explore random prompts. The web interface provides a seamless experience for users to generate creative prompts based on their input or discover unique prompts at random.
 
 ### Project Structure
 
 ```text
-app 
+app
+     - instruction/
+          - file
      - static/
           - icon/
-              - favicon.ico
-              - bg3.jpg
+              - file
           - style/
-               - generator.css
+               - file
           - font/
-               - caveat.ttf
-               - purisa.ttf
-               - dancingscript.ttf
+               - file
+          - script/
+               - file
      - template/
-          - generator.html
+          - file
      - .env
      - app.py
-     - generative_model.py
 ```
 
 ### Installation
