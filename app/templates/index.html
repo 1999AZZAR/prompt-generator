@@ -16,95 +16,89 @@
     <!-- js end -->
 
     <!-- seo -->
-    <!-- general -->
     <meta name="description" content="Explore the functionalities of Prompt Sanctuary - a platform for generating and refining prompts. Access a Community Prompt, generate custom prompts, and explore advanced prompting features.">
-    <meta name="keywords" content="prompt sanctuary, prompt generator, Community Prompt, advanced prompting, prompt refinement, prompt generation, writing prompts, creative writing, prompt ideas, writing inspiration, writing exercises, writing generator, story prompts, fiction prompts, writing tools, writing community, writing resources, idea generator, story ideas, writing challenges, writing help, narrative prompts, plot inspiration, storytelling aids, writer's block solutions, creative story ideas, plot development tools, character creation prompts, dialogue prompts, writing prompt app, daily writing prompts, inspiration for writers, story starter, creative writing exercises, fictional writing prompts, writing prompt generator online, flash fiction prompts, novel writing prompts, writing practice, creative brainstorming, storytelling generator, prompting, prompt, llm, llama, gemini, openai, chatgpt">    
-    <!-- general end -->
-
-    <!-- Open Graph / Facebook -->
+    <meta name="keywords" content="prompt sanctuary, prompt generator, Community Prompt, advanced prompting, prompt refinement, prompt generation, writing prompts, creative writing, prompt ideas, writing inspiration, writing exercises, writing generator, story prompts, fiction prompts, writing tools, writing community, writing resources, idea generator, story ideas, writing challenges, writing help, narrative prompts, plot inspiration, storytelling aids, writer's block solutions, creative story ideas, plot development tools, character creation prompts, dialogue prompts, writing prompt app, daily writing prompts, inspiration for writers, story starter, creative writing exercises, fictional writing prompts, writing prompt generator online, flash fiction prompts, novel writing prompts, writing practice, creative brainstorming, storytelling generator, prompting, prompt, llm, llama, gemini, openai, chatgpt">
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://sanctuary01.pythonanywhere.com/">
     <meta property="og:title" content="Prompt Sanctuary">
-    <meta property="og:description" content="Explore the functionalities of Prompt Sanctuary - a platform for generating and refining prompts. Access a Community Prompt, generate custom prompts, and explore advanced prompting features.">
-    <!-- Open Graph / Facebook end -->
-
-    <!-- Twitter -->
+    <meta property="og:description" content="Explore the functionalities of Prompt Sanctuary - a platform for generating and refining prompts.">
     <meta property="twitter:card" content="summary_large_image">
     <meta property="twitter:url" content="https://sanctuary01.pythonanywhere.com/">
     <meta property="twitter:title" content="Prompt Sanctuary">
-    <meta property="twitter:description" content="Explore the functionalities of Prompt Sanctuary - a platform for generating and refining prompts. Access a Community Prompt, generate custom prompts, and explore advanced prompting features.">
-    <!-- Twitter end -->
+    <meta property="twitter:description" content="Explore the functionalities of Prompt Sanctuary - a platform for generating and refining prompts.">
     <!-- seo end -->
 </head>
 <body>
     <!-- Side Panel -->
     <div class="side-panel" id="sidePanel">
-        <!-- logo -->
-        <div id="toggleButton" onclick="toggleSidePanel()" class="image-logo">
-            <img id="preview-logo" alt="Image Preview" src="{{ url_for('static', filename='icon/sanctuary.png') }}">
+        <div class="image-logo" onclick="toggleSidePanel()">
+            <img id="preview-logo" alt="Prompt Sanctuary" src="{{ url_for('static', filename='icon/sanctuary.png') }}">
         </div>
-        <!-- logo end -->
-
-        <!-- primary -->
         <div class="side-list" id="side-list">
             <ul id="side-top">
-                <li onclick="window.location.href='{{ url_for('home') }}';"><strong>home</strong></li>
-                <li onclick="window.location.href='{{ url_for('mylib') }}';"><strong>saved prompts</strong></li>
+                <li onclick="window.location.href='{{ url_for('home') }}';"><strong>Home</strong></li>
+                <li onclick="window.location.href='{{ url_for('mylib') }}';"><strong>Saved Prompts</strong></li>
             </ul>
         </div>
-        <!-- primary end -->
-
-        <!-- logout -->
         <div class="side-list" id="bottom-list">
             <ul id="side-bottom">
                 <li onclick="window.location.href='{{ url_for('logout') }}';"><strong>Logout</strong></li>
             </ul>
         </div>
-        <!-- logout end -->
     </div>
-    <!-- side panel ended -->
+    <!-- side panel end -->
 
-    <h1 class="center" id="toggleButton" onclick="toggleSidePanel()"><strong>Prompt Generator</strong></h1>
+    <!-- Page Header -->
+    <header class="page-header">
+        <span class="header-index">PS</span>
+        <h1 id="toggleButton" onclick="toggleSidePanel()">Prompt Sanctuary</h1>
+        <div class="header-divider"></div>
+        <span class="header-index">Generator</span>
+    </header>
+    <!-- page header end -->
 
-    <!-- main -->
-    <div class="master">
-        <!-- welcome -->
-        <div class="welcome">
-            <p>Here, you have the flexibility to <strong>create a customized prompt</strong> tailored to your specific requirements. Alternatively, you can opt to use the <strong>random feature</strong>, which will generate a prompt for you—ensuring not only variety but also an element of <strong>surprise and enjoyment</strong> in the process. Whether you have a <strong>specific idea</strong> in mind or are seeking <strong>inspiration</strong>, the Prompt Generator is designed to accommodate both your <strong>structured and spontaneous</strong> prompt needs.</p>
-        </div>
+    <!-- Main -->
+    <main class="master">
+
+        <!-- Welcome -->
+        <section class="welcome">
+            <span class="welcome-label">00 — About</span>
+            <p>Create a <strong>customized prompt</strong> tailored to your requirements, or use the <strong>random feature</strong> to generate one — ensuring variety and an element of <strong>surprise</strong>. Whether you have a <strong>specific idea</strong> or are seeking <strong>inspiration</strong>, the generator accommodates both structured and spontaneous needs.</p>
+        </section>
         <!-- welcome end -->
 
-        <!-- tools -->
+        <!-- Tools -->
         <div class="prompting">
-            <!-- text prompt-->
+
+            <!-- Text Prompt -->
             <div class="container">
-                <p>generate text prompt</p>
-                <!-- input -->
+                <div class="container-label">
+                    <span class="container-number">01</span>
+                    <span class="container-title">Text Prompt</span>
+                </div>
                 <div class="left-section">
                     <form id="text-prompt-form" onsubmit="submitForm('text-prompt-form', '/generate/tprompt'); return false;">
-                        <label for="user_input">Input:</label>
+                        <label for="user_input_text">Input</label>
                         <div class="input">
                             <input type="text" name="user_input" id="user_input_text" placeholder="write a python code" required>
                             <input type="submit" value="Generate">
                         </div>
                     </form>
                 </div>
-                <!-- input end -->
-
-                <!-- random -->
                 <div class="right-section">
                     <form id="random-text-prompt-form" onsubmit="submitForm('random-text-prompt-form', '/generate/trandom'); return false;">
-                        <input type="submit" value="random">
+                        <input type="submit" value="Random">
                     </form>
                 </div>
-                <!-- random end -->
             </div>
             <!-- text prompt end -->
 
-            <!-- Combined image prompt and image to prompt -->
+            <!-- Image Prompt -->
             <div class="container">
-                <!-- Generate from option -->
-                <p>Generate Image prompt:</p>
+                <div class="container-label">
+                    <span class="container-number">02</span>
+                    <span class="container-title">Image Prompt</span>
+                </div>
                 <div class="left-section">
                     <div class="input-radio">
                         <input type="radio" id="text-input-option" name="prompt-option" value="text" checked onclick="togglePromptInput('text')">
@@ -114,37 +108,26 @@
                         <input type="radio" id="random-option" name="prompt-option" value="random" onclick="togglePromptInput('random')">
                         <label for="random-option">Random</label>
                     </div>
-
-                    <!-- Text input section -->
                     <form id="image-prompt-form">
-                        <label>
-                            <input type="text" name="user_input" id="user_input_image" placeholder="whale on the desert" required>
-                        </label>
+                        <input type="text" name="user_input" id="user_input_image" placeholder="whale on the desert" required>
                     </form>
-                    
-                    <!-- Image upload section -->
                     <form id="image-upload-form" enctype="multipart/form-data" style="display: none;">
-                        <label>
-                            <input type="file" name="image" accept="image/*" required>
-                        </label>
+                        <input type="file" name="image" accept="image/*" required>
                     </form>
                 </div>
-                <!-- Generate from option end -->
-
-                <!-- Generate button -->
                 <div class="right-section">
-                        <button id="generate-button" onclick="generatePrompt()">Generate</button>
+                    <button id="generate-button" onclick="generatePrompt()">Generate</button>
                 </div>
-                <!-- Generate button end -->
             </div>
-            <!-- Combined image prompt and image to prompt end -->
+            <!-- image prompt end -->
 
         </div>
         <!-- tools end -->
-    </div>
+
+    </main>
     <!-- main end -->
 
-    <!-- preview -->
+    <!-- Image Preview -->
     <div class="image-preview">
         {% if not image_selected %}
             <img id="preview-image" alt="Image Preview" src="{{ url_for('static', filename='icon/favicon.ico') }}">
@@ -152,21 +135,23 @@
             <img id="preview-image" alt="Image Preview">
         {% endif %}
     </div>
-    <!-- preview end -->
+    <!-- image preview end -->
 
-    <!-- loading -->
+    <!-- Loading -->
     <div class="loading" id="loading">
         <div class="spinner"></div>
         <h1>Generating...</h1>
     </div>
     <!-- loading end -->
 
-    <!-- result -->
+    <!-- Result -->
     <div class="result" id="resultSection" style="display: none;">
-        <h2>Generated Prompt:</h2>
+        <h2>Generated Prompt</h2>
         <p id="response"></p>
-        <button onclick="copyToClipboard()">Copy</button>
-        <button onclick="promptForTitle()">Save</button>
+        <div class="result-actions">
+            <button onclick="copyToClipboard()">Copy</button>
+            <button onclick="promptForTitle()">Save</button>
+        </div>
     </div>
     <!-- result end -->
 

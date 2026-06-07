@@ -1,17 +1,15 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-    <title>saved prompt</title>
+    <title>Saved Prompts — Prompt Sanctuary</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="icon" type="image/x-icon" href="{{ url_for('static', filename='icon/favicon.ico') }}">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Caveat&family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
-    <!-- css  -->
+    <!-- css -->
     <link rel="stylesheet" href="{{ url_for('static', filename='style/side.css') }}">
     <link rel="stylesheet" href="{{ url_for('static', filename='style/mylib.css') }}">
-    <!-- css end  -->
-
+    <link rel="stylesheet" href="{{ url_for('static', filename='style/footer.css') }}">
+    <!-- css end -->
     <!-- js -->
     <script defer src="{{ url_for('static', filename='script/side_panel.js') }}"></script>
     <script defer src="{{ url_for('static', filename='script/library_copy.js') }}"></script>
@@ -20,100 +18,103 @@
     <!-- js end -->
 
     <!-- seo -->
-    <meta name="description" content="Explore the functionalities of Prompt Sanctuary - a platform for generating and refining prompts. Access a prompt library, generate custom prompts, and explore advanced prompting features.">
-    <meta name="keywords" content="prompt sanctuary, prompt generator, prompt library, advanced prompting, prompt refinement, prompt generation, writing prompts, creative writing, prompt ideas, writing inspiration, writing exercises, writing generator, story prompts, fiction prompts, writing tools, writing community, writing resources, idea generator, story ideas, writing challenges, writing help, narrative prompts, plot inspiration, storytelling aids, writer's block solutions, creative story ideas, plot development tools, character creation prompts, dialogue prompts, writing prompt app, daily writing prompts, inspiration for writers, story starter, creative writing exercises, fictional writing prompts, writing prompt generator online, flash fiction prompts, novel writing prompts, writing practice, creative brainstorming, storytelling generator, prompting, prompt, llm, llama, gemini, openai, chatgpt">    
-    
-    <!-- Open Graph / Facebook -->
+    <meta name="description" content="Your saved prompts on Prompt Sanctuary.">
     <meta property="og:type" content="website">
-    <meta property="og:title" content="Prompt Sanctuary">
-    <meta property="og:description" content="Explore the functionalities of Prompt Sanctuary - a platform for generating and refining prompts. Access a prompt library, generate custom prompts, and explore advanced prompting features.">
-
-    <!-- Twitter -->
+    <meta property="og:title" content="Saved Prompts — Prompt Sanctuary">
     <meta property="twitter:card" content="summary_large_image">
-    <meta property="twitter:title" content="Prompt Sanctuary">
-    <meta property="twitter:description" content="Explore the functionalities of Prompt Sanctuary - a platform for generating and refining prompts. Access a prompt library, generate custom prompts, and explore advanced prompting features.">
+    <meta property="twitter:title" content="Saved Prompts — Prompt Sanctuary">
     <!-- seo end -->
 </head>
 
 <body>
+
     <!-- Side Panel -->
     <div class="side-panel" id="sidePanel">
-        <!-- logo -->
-        <div id="toggleButton" onclick="toggleSidePanel()" class="image-logo">
-            <img id="preview-logo" alt="Image Preview" src="{{ url_for('static', filename='icon/sanctuary.png') }}">
+        <div class="image-logo" onclick="toggleSidePanel()">
+            <img id="preview-logo" alt="Prompt Sanctuary" src="{{ url_for('static', filename='icon/sanctuary.png') }}">
         </div>
-        <!-- logo end -->
-
-        <!-- primary -->
         <div class="side-list" id="side-list">
             <ul id="side-top">
-                <li onclick="window.location.href='{{ url_for('home') }}';"><strong>home</strong></li>
-                <li onclick="window.location.href='{{ url_for('mylib') }}';"><strong>saved prompts</strong></li>
+                <li onclick="window.location.href='{{ url_for('home') }}';"><strong>Home</strong></li>
+                <li onclick="window.location.href='{{ url_for('mylib') }}';"><strong>Saved Prompts</strong></li>
             </ul>
         </div>
-        <!-- primary end -->
-
-        <!-- logout -->
         <div class="side-list" id="bottom-list">
             <ul id="side-bottom">
                 <li onclick="window.location.href='{{ url_for('logout') }}';"><strong>Logout</strong></li>
             </ul>
         </div>
-        <!-- logout end -->
     </div>
-    <!-- side panel ended -->
+    <!-- side panel end -->
 
-    <h1 id="toggleButton" onclick="toggleSidePanel()"><strong>Saved Prompts</strong></h1>
+    <!-- Page Header -->
+    <header class="page-header">
+        <span class="header-index">PS</span>
+        <h1 id="toggleButton" onclick="toggleSidePanel()">Saved Prompts</h1>
+        <div class="header-divider"></div>
+        <span class="header-index">Library</span>
+    </header>
+    <!-- page header end -->
 
-    <!-- edit popup -->
+    <!-- Edit Popup -->
     <div id="editPopup">
         <h2>Edit Prompt</h2>
         <form action="/save_edit" method="post">
             <input type="hidden" name="random_val" id="editRandomVal">
-            <label for="editTitle">Title:</label>
+            <label for="editTitle">Title</label>
             <input type="text" id="editTitle" name="edited_title" placeholder="Enter title">
-    
-            <label for="editPrompt">Prompt:</label>
+            <label for="editPrompt">Prompt</label>
             <textarea id="editPrompt" name="edited_prompt" placeholder="Enter prompt"></textarea>
-    
-            <button id="saveEdit" type="submit">Save</button>
-            <button id="cancelEdit" type="button">Cancel</button>
+            <div class="popup-actions">
+                <button id="saveEdit" type="submit">Save</button>
+                <button id="cancelEdit" type="button">Cancel</button>
+            </div>
         </form>
     </div>
-    <!-- edit popup ended -->
+    <!-- edit popup end -->
 
-    <!-- main library -->
-    <div class="main">
-        <h3>Here are Your saved prompts:</h3>
+    <!-- Library -->
+    <main class="main">
+
+        <div class="library-header">
+            <span class="library-number">01</span>
+            <span class="library-title">Your Saved Prompts</span>
+        </div>
+
         {% if saved_prompts %}
-            <!-- prompt list -->
             <div id="imageBoxContainer" class="flex-container">
                 <div class="prompt-container">
                     {% for prompt in saved_prompts %}
-                    <div class="prompt-box">
-                        <li><h4>{{ prompt[1] }}</h4></li>
+                    <article class="prompt-box">
+                        <div class="prompt-box-header">
+                            <span class="prompt-index">{{ '%02d'|format(loop.index) }}</span>
+                            <h4>{{ prompt[1] }}</h4>
+                        </div>
                         <p>{{ prompt[2] }}</p>
-                        <button class="copy-button" data-clipboard-text="{{ prompt[2] }}">Copy</button>
-                        <button class="edit-button" onclick="openEditPopup('{{ prompt[0] }}', '{{ prompt[1] }}', '{{ prompt[2] }}')">Edit</button>
-                        <form action="{{ url_for('delete_prompt') }}" method="post" style="display: inline;">
-                            <input type="hidden" name="prompt_id" value="{{ prompt[0] }}">
-                            <button type="submit" class="delete-button">Delete</button>
-                        </form>
-                    </div>
+                        <div class="prompt-actions">
+                            <button class="copy-button" data-clipboard-text="{{ prompt[2] }}">Copy</button>
+                            <button class="edit-button" onclick="openEditPopup('{{ prompt[0] }}', '{{ prompt[1] }}', '{{ prompt[2] }}')">Edit</button>
+                            <form action="{{ url_for('delete_prompt') }}" method="post" style="display: inline;">
+                                <input type="hidden" name="prompt_id" value="{{ prompt[0] }}">
+                                <button type="submit" class="delete-button">Delete</button>
+                            </form>
+                        </div>
+                    </article>
                     {% endfor %}
                 </div>
             </div>
-            <!-- prompt list ended -->
         {% else %}
-            <h4>You have No saved prompts yet.</h4>
+            <h4>No saved prompts yet.</h4>
         {% endif %}
-    </div>
-    <!-- main library ended -->
 
-    <!-- footer -->
+    </main>
+    <!-- library end -->
+
+    <!-- Footer -->
     <footer>
-        <p>prompt sanctuary by <a href="https://github.com/1999AZZAR">azzar budiyanto</a></p>
+        <p>Prompt Sanctuary by <a href="https://github.com/1999AZZAR">azzar budiyanto</a></p>
     </footer>
     <!-- footer end -->
+
 </body>
 </html>

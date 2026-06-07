@@ -1,9 +1,23 @@
-/* CSS for the footer */
+footer {
+  padding: 20px 48px;
+  border-top: 1px solid #2A2A2A;
+  font-family: "Montserrat", sans-serif;
+  font-size: 0.625rem;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: #606060;
+}
+
 footer a {
-    color: yellow;
-    text-decoration: none;
+  color: #606060;
+  text-decoration: none;
+  border-bottom: 1px solid transparent;
+  transition: color 0.1s, border-color 0.1s;
 }
 
 footer a:hover {
-    text-decoration: underline;
+  color: #EBEBEB;
+  border-bottom-color: #EBEBEB;
+  text-decoration: none;
 }

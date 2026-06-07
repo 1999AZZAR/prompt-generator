@@ -1,201 +1,358 @@
+:root {
+  --bg:     #0A0A0A;
+  --surf:   #111111;
+  --line:   #2A2A2A;
+  --text:   #EBEBEB;
+  --sub:    #606060;
+  --accent: #E30613;
+  --font:   "Montserrat", "Rubik", sans-serif;
+}
+
 body {
-    font-family: 'Montserrat', sans-serif;
-    color: rgb(255, 255, 255);
-    line-height: 1.5;
-    background: linear-gradient(rgba(0, 0, 0, 0.65), rgba(0, 0, 0, 0.65)), url('../icon/bg.jpg') center/cover no-repeat fixed;
+  font-family: var(--font);
+  background-color: var(--bg);
+  color: var(--text);
+  font-size: 14px;
+  line-height: 1.6;
 }
 
-p {
-    background-color: #00000065;
-    font-family: 'Rubik';
-    text-align: center;
-    font-size: 0.95rem;
-    border-radius: 10px;
-    padding: 10px;
-    margin: 10px 0px;
-}
-
-p:hover {
-    color: rgb(254, 230, 203);
-}
-
-strong:hover {
-    color: #ffd477;
-}
+/* ── Typography ─────────────────────────────── */
 
 h1 {
-    font-family: 'Caveat', cursive;
-    font-size: 2.375rem;
-    text-align: center;
-    color: purple !important;
+  font-family: var(--font);
+  font-size: clamp(1.5rem, 4vw, 2.25rem);
+  font-weight: 900;
+  letter-spacing: -0.03em;
+  line-height: 1.05;
+  color: var(--text);
+  text-transform: uppercase;
+  cursor: pointer;
+  user-select: none;
+  margin: 0;
+  transition: color 0.1s;
 }
 
-h1 a {
-    color: purple !important;
-}
-
-h1 a:hover,
-h1 strong:hover {
-    color: rgb(204, 0, 255) !important;
-}
+h1:hover { color: var(--accent); }
 
 h2 {
-    font-family: 'Montserrat';
-    font-size: 2.125rem;
-    color: yellow;
+  font-size: 1rem;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+  text-transform: none;
+  color: var(--text);
+  margin: 0 0 20px;
 }
 
 h3 {
-    font-size: 1.75rem;
-    margin: 0%;
-    color: yellow;
-    text-align: center;
+  font-size: 0.625rem;
+  font-weight: 700;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--sub);
+  margin: 0 0 8px;
 }
 
 h4 {
-    font-size: 1.625rem;
-    margin: 2% 0%;
+  font-size: 0.875rem;
+  font-weight: 700;
+  color: var(--text);
+  margin: 0 0 8px;
 }
 
 a {
-    color: rgba(255, 255, 0, 0.863);
-    text-decoration: none;
+  color: var(--sub);
+  text-decoration: none;
+  border-bottom: 1px solid transparent;
+  transition: color 0.1s, border-color 0.1s;
+}
+a:hover { color: var(--accent); border-bottom-color: var(--accent); }
+
+p {
+  font-size: 0.8125rem;
+  color: var(--sub);
+  background: none;
+  border-radius: 0;
+  padding: 0;
+  margin: 0;
 }
 
-a:hover {
-    color: rgb(255, 132, 0);
-    text-decoration: none;
-}
+strong { font-weight: 700; color: var(--text); }
+strong:hover { color: var(--accent); }
+
+/* ── Main Container ──────────────────────────── */
 
 .main {
-    display: block;
-    align-items: center;
-    flex-wrap: wrap;
-    flex-direction: column;
+  display: block;
+  padding: 96px 48px 80px;
+  max-width: 1160px;
+  margin: 0 auto;
+}
+
+/* ── Library Header ──────────────────────────── */
+
+.library-header {
+  display: flex;
+  align-items: baseline;
+  gap: 14px;
+  border-top: 2px solid var(--text);
+  padding-top: 14px;
+  margin-bottom: 40px;
+}
+
+.library-number {
+  font-size: 0.625rem;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--accent);
+}
+
+.library-title {
+  font-size: 0.625rem;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--sub);
+}
+
+/* ── Prompt Grid ─────────────────────────────── */
+
+.flex-container { display: block; }
+
+.prompt-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  gap: 1px;
+  background: var(--line);
+  border: 1px solid var(--line);
 }
 
 .prompt-box {
-    display: block;
-    margin: 1% 1%;
-    padding: 2% 3%;
-    border-radius: 15px;
-    height: fit-content;
-    min-width: 450px;
-    max-width: 450px;
-    background-color: #2d2d2dc2;
-    align-content: normal;
-    line-height: 1.2;
+  display: flex;
+  flex-direction: column;
+  background: var(--bg);
+  padding: 24px;
+  min-width: 0;
+  max-width: none;
+  height: auto;
+  border-radius: 0;
+}
+
+/* ── Prompt Box Header ───────────────────────── */
+
+.prompt-box-header {
+  display: flex;
+  align-items: baseline;
+  gap: 12px;
+  border-bottom: 1px solid var(--line);
+  padding-bottom: 12px;
+  margin-bottom: 14px;
+}
+
+.prompt-index {
+  font-size: 0.625rem;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--accent);
+  min-width: 24px;
+}
+
+.prompt-box h4 {
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: var(--text);
+  margin: 0;
 }
 
 .prompt-box p {
-    padding: 2.5%;
-    margin: 2%  1%;
-    text-align: justify;
-    line-height: 1.1;
-    font-family: 'Rubik';
-    height: 230px;
-    overflow-y: auto; /* Add overflow-y property */
+  font-size: 0.8125rem;
+  line-height: 1.6;
+  color: var(--sub);
+  background: none;
+  border-radius: 0;
+  padding: 0;
+  margin: 0 0 16px;
+  flex: 1;
+  overflow-y: auto;
+  max-height: 200px;
+  text-align: left;
 }
 
-button {
-    color: rgb(255 255 255);
-    font-family: 'Rubik';
-    font-size: 0.9em;
-    background-color: #4b006e78;
-    border: 2px solid #56565657;
-    cursor: pointer;
-    margin: 1%;
-    padding: 1px;
-    transition: transform 0.3s linear;
-    border-radius: 10px;
-    min-width: 80px;
+.prompt-box p:hover { color: var(--text); }
+
+/* ── Prompt Actions ──────────────────────────── */
+
+.prompt-actions {
+  display: flex;
+  flex-direction: row;
+  gap: 6px;
+  flex-wrap: wrap;
+  margin-top: auto;
+  padding-top: 14px;
+  border-top: 1px solid var(--line);
 }
 
-button:hover {
-    background-color: #5c0187e2;
-    transform: scale(1.1);
+button,
+button.copy-button,
+button.edit-button,
+button.delete-button {
+  font-family: var(--font);
+  font-size: 0.5625rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  background: none;
+  color: var(--sub);
+  border: 1px solid var(--line);
+  padding: 8px 14px;
+  border-radius: 0;
+  cursor: pointer;
+  min-width: auto;
+  transition: background 0.1s, color 0.1s, border-color 0.1s;
+  margin: 0;
 }
 
-ol li {
-    font-family: 'Caveat', cursive;
+button:hover,
+button.copy-button:hover,
+button.edit-button:hover {
+  background: var(--text);
+  color: var(--bg);
+  border-color: var(--text);
+  transform: none;
 }
 
-ol {
-    display: flex;
-    flex-direction: row;
-    align-content: normal;
-    flex-wrap: wrap;
+button.delete-button:hover {
+  background: var(--accent);
+  color: var(--bg);
+  border-color: var(--accent);
+  transform: none;
 }
 
-div#imageBoxContainer {
-    display: inline-flex;
-    width: -webkit-fill-available;
-    justify-content: space-evenly;
-    height: fit-content;
-}
+/* ── Edit Popup ──────────────────────────────── */
 
-div.prompt-container {
-    list-style: none;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    margin: auto 3%;
-    max-width: 100%;
-}
-
-div.prompt-box {
-    width: calc(50% - 20px); /* Adjust width for two items in one row */
-}
-
-/* edit popup */
 #editPopup {
-    display: none;
-    position: fixed;
-    min-width: 350px;
-    max-width: 90%;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    background-color: #232323;
-    padding: 1% 2%;
-    border-radius: 10px;
-    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
-    z-index: 9999;
+  display: none;
+  position: fixed;
+  width: 480px;
+  max-width: 92vw;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: var(--surf);
+  border: 1px solid var(--line);
+  padding: 32px;
+  border-radius: 0;
+  box-shadow: none;
+  z-index: 9999;
 }
 
-#editPopup input{
-    width: 90%;
-    padding: 3%;
-    border-radius: 8px;
-    color: #ffffff;
-    background-color: #151515;
+#editPopup h2 {
+  font-size: 0.625rem;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin-bottom: 24px;
 }
+
+#editPopup label {
+  display: block;
+  font-size: 0.625rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--sub);
+  margin: 20px 0 6px;
+}
+
+#editPopup label:first-of-type { margin-top: 0; }
+
+#editPopup input,
+#editPopup textarea {
+  width: 100%;
+  background: none;
+  border: none;
+  border-bottom: 1px solid var(--line);
+  color: var(--text);
+  font-family: var(--font);
+  font-size: 0.875rem;
+  padding: 10px 0;
+  border-radius: 0;
+  outline: none;
+  transition: border-color 0.15s;
+  margin: 0;
+}
+
+#editPopup input:focus,
+#editPopup textarea:focus { border-bottom-color: var(--text); }
 
 #editPopup textarea {
-    margin-bottom: 10px;
-    width: 90%;
-    padding: 3%;
-    height: 200px;
-    border-radius: 8px;
-    text-align: justify;
-    color: #ffffff;
-    background-color: #151515;
+  height: 160px;
+  resize: vertical;
+  line-height: 1.6;
 }
 
+.popup-actions {
+  display: flex;
+  gap: 8px;
+  margin-top: 24px;
+}
 
-@media only screen and (min-width: 250px) and (max-width: 768px) {
-    div.prompt-box {
-        width: 90%; /* Fill 90% of the width of the display */
-        max-width: none; /* Remove max-width */
-    }
+#saveEdit {
+  font-family: var(--font);
+  font-size: 0.625rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  background: var(--accent);
+  color: var(--bg);
+  border: 1px solid var(--accent);
+  padding: 10px 20px;
+  border-radius: 0;
+  cursor: pointer;
+  transition: background 0.1s, color 0.1s;
+}
 
-    div.prompt-container {
-        display: block; /* Change to block display */
-    }
+#saveEdit:hover { background: var(--text); border-color: var(--text); transform: none; }
 
-    @media (max-width: 450px) {
-        div.prompt-box {
-            width: calc(100% - 20px); /* Adjust width to fill screen */
-        }
-    }
+#cancelEdit {
+  font-family: var(--font);
+  font-size: 0.625rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  background: none;
+  color: var(--sub);
+  border: 1px solid var(--line);
+  padding: 10px 20px;
+  border-radius: 0;
+  cursor: pointer;
+  transition: background 0.1s, color 0.1s, border-color 0.1s;
+}
+
+#cancelEdit:hover { background: var(--text); color: var(--bg); border-color: var(--text); transform: none; }
+
+/* ── Empty State ─────────────────────────────── */
+
+.main h4 {
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--sub);
+  padding: 40px 0;
+}
+
+/* ── Responsive ──────────────────────────────── */
+
+@media (max-width: 768px) {
+  .main { padding: 80px 24px 60px; }
+  .prompt-container { grid-template-columns: 1fr; }
+}
+
+@media (max-width: 480px) {
+  .main { padding: 72px 16px 48px; }
 }
